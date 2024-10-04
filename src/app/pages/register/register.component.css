@@ -1,0 +1,100 @@
+.register-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6d5dfc, #b964f7);
+    padding: 20px;
+  }
+  
+  /* Tarjeta de registro */
+  .register-card {
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Título */
+  .title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 25px;
+  }
+  
+  /* Grupo de inputs */
+  .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  /* Etiquetas */
+  .input-group label {
+    display: block;
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 5px;
+  }
+  
+  /* Inputs */
+  .input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s;
+  }
+  
+  /* Efecto al enfocar los inputs */
+  .input-group input:focus {
+    border-color: #6d5dfc;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(109, 93, 252, 0.2);
+  }
+  
+  /* Botón de registro */
+  .register-button {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #6d5dfc;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  /* Efecto al pasar el cursor sobre el botón */
+  .register-button:hover {
+    background-color: #5b4cd7;
+    transform: translateY(-2px);
+  }
+  
+  /* Texto de inicio de sesión */
+  .login-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Enlace de inicio de sesión */
+  .login-text a {
+    color: #6d5dfc;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  
+  /* Efecto al pasar el cursor sobre el enlace */
+  .login-text a:hover {
+    color: #5b4cd7;
+  }
+  

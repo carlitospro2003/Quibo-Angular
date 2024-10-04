@@ -1,0 +1,119 @@
+/* Contenedor general con estilo de dos columnas */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #6d5dfc, #b964f7);
+    padding: 20px;
+  }
+  
+  /* Sección del logo a la izquierda */
+  .logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    max-width: 50%;
+    flex: 1;
+  }
+  
+  /* Imagen del logo */
+  .logo-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* Contenedor del formulario a la derecha */
+  .login-card {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    flex: 1;
+  }
+  
+  /* Título del formulario */
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+  
+  /* Grupo de inputs */
+  .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  /* Etiquetas de los inputs */
+  .input-group label {
+    display: block;
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 5px;
+  }
+  
+  /* Estilo de los inputs */
+  .input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s;
+  }
+  
+  /* Efecto al enfocar los inputs */
+  .input-group input:focus {
+    border-color: #6d5dfc;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(109, 93, 252, 0.2);
+  }
+  
+  /* Botón de ingreso */
+  .login-button {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #6d5dfc;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  /* Efecto al pasar el cursor sobre el botón */
+  .login-button:hover {
+    background-color: #5b4cd7;
+    transform: translateY(-2px);
+  }
+  
+  /* Texto de registro */
+  .signup-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Enlace de registro */
+  .signup-text a {
+    color: #6d5dfc;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  
+  /* Efecto al pasar el cursor sobre el enlace */
+  .signup-text a:hover {
+    color: #5b4cd7;
+  }
+  
