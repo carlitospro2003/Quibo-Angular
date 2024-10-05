@@ -1,44 +1,30 @@
-<div class="chat-container">
-    <!-- Barra superior -->
-    <div class="chat-header">
-      <img src="assets/profile-pic.jpg" alt="Contacto" class="contact-photo">
-      <div class="contact-info">
-        <h3>Nombre del contacto</h3>
-        <p>En línea</p>
-      </div>
-      <div class="chat-actions">
-        <i class="fas fa-video"></i>
-        <i class="fas fa-phone"></i>
-      </div>
+<div class="chat_window">
+  <div class="top_menu">
+    <div class="buttons">
+      <div class="button close"></div>
+      <div class="button minimize"></div>
+      <div class="button maximize"></div>
     </div>
-  
-    <!-- Ventana de mensajes -->
-    <div class="chat-body">
-      <div class="message left">
-        <div class="message-content">
-          <p>¡Hola! ¿Cómo estás?</p>
-          <span class="message-time">11:00 AM</span>
-        </div>
-      </div>
-  
-      <div class="message right">
-        <div class="message-content">
-          <p>¡Hola! Todo bien, ¿y tú?</p>
-          <span class="message-time">11:01 AM</span>
-        </div>
-      </div>
-      
-      <!-- Más mensajes aquí -->
-    </div>
-  
-    <!-- Barra inferior -->
-    <div class="chat-footer">
-      <i class="fas fa-smile"></i>
-      <i class="fas fa-paperclip"></i>
-      <input type="text" placeholder="Escribe un mensaje..." />
-      <button class="send-button">
-        <i class="fas fa-paper-plane"></i>
-      </button>
+    <div class="title">
+      <img src="https://cdn-icons-png.flaticon.com/512/8684/8684514.png" width="25px" height="25px">
+      Quibo
     </div>
   </div>
-  
+  <ul class="messages">
+    <li class="message right">
+      <div class="avatar"></div>
+      <div class="text_wrapper">
+        <div class="text">Hola</div>
+      </div>
+    </li>
+  </ul>
+  <div class="bottom_wrapper clearfix">
+    <div class="message_input_wrapper">
+      <input class="message_input" placeholder="Message..." />
+    </div>
+    <div class="send_message">
+      <div class="icon"></div>
+      <div class="text">Send</div>
+    </div>
+  </div>
+</div>
