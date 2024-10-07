@@ -15,5 +15,5 @@ export const routes: Routes = [
     {
         path:"chats", component:ChatsComponent
     },
-    
+
 ];
