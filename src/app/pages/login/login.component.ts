@@ -21,7 +21,7 @@ export class LoginComponent {
   constructor(private http: HttpClient, private router: Router) { }
 
   onSubmit() {
-    this.http.post('http://localhost:3030/login', { email: this.email, password: this.password })
+    this.http.post('http://localhost:8000/api/auth/login', { email: this.email, password: this.password })
       .subscribe({
         next: (response: any) => {
           console.log('Login exitoso', response);

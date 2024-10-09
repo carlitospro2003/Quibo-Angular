@@ -1,30 +1,9 @@
-<div class="chat_window">
-  <div class="top_menu">
-    <div class="buttons">
-      <div class="button close"></div>
-      <div class="button minimize"></div>
-      <div class="button maximize"></div>
-    </div>
-    <div class="title">
-      <img src="https://cdn-icons-png.flaticon.com/512/8684/8684514.png" width="25px" height="25px">
-      Quibo
-    </div>
-  </div>
-  <ul class="messages">
-    <li class="message right">
-      <div class="avatar"></div>
-      <div class="text_wrapper">
-        <div class="text">Hola</div>
-      </div>
-    </li>
-  </ul>
-  <div class="bottom_wrapper clearfix">
-    <div class="message_input_wrapper">
-      <input class="message_input" placeholder="Message..." />
-    </div>
-    <div class="send_message">
-      <div class="icon"></div>
-      <div class="text">Send</div>
-    </div>
-  </div>
-</div>
+<body>
+<section id="chat">
+  <ul id="messages" style="color: #f1f1f1"></ul>
+  <form id="form">
+    <label for="input"></label><input type="text" name="message" id="input" placeholder="Type a message" autocomplete="off"/>
+    <button class="button-34" role="button" type="submit">Send</button>
+  </form>
+</section>
+</body>

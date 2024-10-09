@@ -18,22 +18,22 @@ export class RegisterComponent {
   username: string = '';
   email: string = '';
   password: string = '';
-  cpassword : string = '';
+  password_confirmation : string = '';
 
   constructor(private http: HttpClient, private router: Router) {}
 
   onRegister() {
-    if (this.password !== this.cpassword ) {
+    if (this.password !== this.password_confirmation ) {
       alert('Las contraseñas no coinciden');
       return;
     }
 
     // Hacer la petición POST al servidor para registrar al usuario
-    this.http.post('http://localhost:3030/register', {
+    this.http.post('http://localhost:8000/api/auth/register', {
       username: this.username,
       email: this.email,
       password: this.password,
-      cpassword : this.cpassword
+      password_confirmation : this.password_confirmation
     }).subscribe({
       next: (response: any) => {
         console.log('Registro exitoso', response);
