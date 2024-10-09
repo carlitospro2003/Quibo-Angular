@@ -1,8 +1,9 @@
 <body>
 <section id="chat">
   <ul id="messages" style="color: #f1f1f1"></ul>
-  <form id="form">
-    <label for="input"></label><input type="text" name="message" id="input" placeholder="Type a message" autocomplete="off"/>
+  <form id="form" (ngSubmit)="onSubmit()">
+    <label for="input"></label>
+    <input type="text" name="message" id="input" [(ngModel)]="message" placeholder="Type a message" autocomplete="off"/>
     <button class="button-34" role="button" type="submit">Send</button>
   </form>
 </section>
