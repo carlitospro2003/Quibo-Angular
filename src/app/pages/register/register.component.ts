@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http'; // Para hacer la petición HTTP
 import { FormsModule } from '@angular/forms'; // Para usar ngModel
 import { Router, RouterLink } from '@angular/router';
+import {AuthService} from "../../service/auth.service";
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,11 @@ export class RegisterComponent {
   password: string = '';
   password_confirmation : string = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService,
+    ) {}
 
   onRegister() {
     if (this.password !== this.password_confirmation ) {

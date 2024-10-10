@@ -3,6 +3,7 @@ import { FormsModule } from "@angular/forms";
 import {HttpClient, HttpClientModule, HttpHeaders} from "@angular/common/http";
 import { Router } from "@angular/router";
 import {NgForOf} from "@angular/common";
+import {AuthService} from "../../service/auth.service";
 
 @Component({
   selector: 'app-chats',
@@ -19,7 +20,11 @@ export class ChatsComponent implements OnInit {
   message: string = '';
   messages: any[] = [];
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService,
+    ) { }
 
   intervalId: any;
 
@@ -97,6 +102,7 @@ export class ChatsComponent implements OnInit {
     localStorage.removeItem('userId');
     localStorage.removeItem('userName');
     localStorage.removeItem('userEmail');
+    this.authService.logout();
     this.router.navigate(['/']);
   }
 
