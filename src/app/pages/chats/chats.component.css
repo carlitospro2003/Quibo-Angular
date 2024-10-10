@@ -3,86 +3,122 @@
 *::after {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: grid;
   place-content: center;
   height: 100vh;
   padding: 36px;
-  grid-template-rows: 1fr;
-  background-color: #f1f1f1;
+  background-color: #f3f4f6;
   background-image: url("https://images2.alphacoders.com/132/thumb-1920-1320348.jpeg");
   background-size: cover;
   background-position: center;
 }
 
-#chat {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  overflow: hidden;
-  width: 600px;
-  height: 100%;
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.13);
-  padding-bottom: 5px;
+header {
+  display: flex;
+  justify-content: flex-end; /* botón a la derecha */
+  padding: 10px;
 }
+
+.logout-button {
+  background-color: #ff4c4c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #e63939;
+}
+
+#chat-container {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 20px;
+  width: 500px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#chat-title {
+  display: flex;
+  align-items: center; 
+  font-size: 24px;
+  justify-content: center; 
+}
+
+.logo {
+  width: 30px; 
+  height: 30px; 
+  margin-right: 10px; 
+}
+
+#chat {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  position: relative;
+}
+
 #messages {
   list-style-type: none;
   margin: 0;
-  padding: 4px;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  height: calc(100% - 48px);
-}
-#messages > li {
-  padding: 8px 12px;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+  max-height: 400px;
 }
 
-#messages > li:nth-child(odd) {
-  background-color: rgba(0, 0, 0, 0.44);
-}
 #form {
-  bottom: 0;
   display: flex;
-  align-items: center; /* Alinea verticalmente los elementos */
-  justify-content: space-between; /* Espacia los elementos horizontalmente */
-  height: 48px;
-  left: 0;
-  padding: 4px;
-  position: absolute;
-  right: 0;
+  justify-content: space-between;
+  padding: 10px;
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #input {
-  border-radius: 9999px;
-  border: 1px solid #eee;
   flex: 1;
-  margin: 4px;
-  padding: 8px;
+  border-radius: 9999px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
 }
 
 #input:focus {
   outline: none;
+  border-color: #5e5df0;
 }
+
 .button-34 {
-  background: #5E5DF0;
+  background: #5e5df0;
   border-radius: 999px;
-  box-shadow: #5E5DF0 0 10px 20px -10px;
-  box-sizing: border-box;
-  color: #FFFFFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
   cursor: pointer;
-  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
   font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  opacity: 1;
-  outline: 0 solid transparent;
-  padding: 8px 18px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: fit-content;
-  word-break: break-word;
-  border: 0;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.button-34:hover {
+  background-color: #4a4adf;
 }

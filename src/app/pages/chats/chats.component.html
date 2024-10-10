@@ -1,10 +1,23 @@
 <body>
-<section id="chat">
-  <ul id="messages" style="color: #f1f1f1"></ul>
-  <form id="form" (ngSubmit)="onSubmit()">
-    <label for="input"></label>
-    <input type="text" name="message" id="input" [(ngModel)]="message" placeholder="Type a message" autocomplete="off"/>
-    <button class="button-34" role="button" type="submit">Send</button>
-  </form>
-</section>
+  <header>
+    <button class="logout-button">Cerrar Sesión</button>
+  </header>
+  <section id="chat-container">
+    <h2 id="chat-title">
+      <img src="https://cdn-icons-png.flaticon.com/512/8684/8684514.png" alt="Logo" class="logo" />
+      Quibo
+    </h2>
+    <section id="chat">
+      <ul id="messages">
+      </ul>
+      <form id="form" (ngSubmit)="onSubmit()">
+        <input type="text" name="message" id="input" [(ngModel)]="message" placeholder="Type a message" autocomplete="off"/>
+        <button class="button-34" type="submit">Send</button>
+      </form>
+    </section>
+  </section>
 </body>
+
+
+
+
