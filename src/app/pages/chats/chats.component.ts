@@ -1,41 +1,61 @@
-import { Component } from '@angular/core';
-import {FormsModule} from "@angular/forms";
-import { HttpClientModule, HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from "@angular/forms";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-chats',
   standalone: true,
   imports: [
     FormsModule,
-    HttpClientModule,
-    FormsModule
-
+    HttpClientModule
   ],
   templateUrl: './chats.component.html',
-  styleUrl: './chats.component.css'
+  styleUrls: ['./chats.component.css']
 })
-export class ChatsComponent {
-  message: string ='';
+export class ChatsComponent implements OnInit {
+  message: string = '';
+  messages: any[] = [];
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  ngOnInit() {
+    this.getMessages();
+  }
+
   onSubmit() {
-    this.http.post('http://localhost:8000/api/auth/message',{message : this.message})
-      .subscribe()
-    console.log('Pase?????')
+    const userId = localStorage.getItem('userId');
+    const userName = localStorage.getItem('userName');
+
+    const messageData = {
+      userId: userId,
+      userName: userName,
+      content: this.message
+    };
+
+    this.http.post('http://localhost:8000/api/messages', messageData)
+      .subscribe({
+        next: (response: any) => {
+          console.log('Mensaje enviado', response);
+          this.message = '';
+          this.getMessages(); // Actualiza la lista de mensajes
+        },
+        error: (error) => {
+          console.error('Error al enviar el mensaje', error);
+        }
+      });
+  }
+
+  getMessages() {
+    this.http.get('http://localhost:8000/api/message/get-messages')
+      .subscribe({
+        next: (response: any) => {
+          this.messages = response;
+        },
+        error: (error) => {
+          console.error('Error al obtener los mensajes', error);
+        }
+      });
   }
 }
 
-const getUsername = async () => {
-  let username = localStorage.getItem('username');
-  while (!username) {
-    username = prompt('Please enter your username');
-    if (username) {
-      localStorage.setItem('username', username);
-    } else {
-      alert('Username cannot be empty. Please enter a valid username.');
-    }
-  }
-  return username;
-};
