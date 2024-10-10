@@ -30,7 +30,7 @@ export class RegisterComponent {
 
     // Hacer la petición POST al servidor para registrar al usuario
     this.http.post('http://localhost:8000/api/auth/register', {
-      username: this.username,
+      name: this.username,
       email: this.email,
       password: this.password,
       password_confirmation : this.password_confirmation

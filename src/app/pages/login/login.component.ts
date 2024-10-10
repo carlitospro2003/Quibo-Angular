@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http'; // Usa HttpClient
-import { FormsModule } from '@angular/forms'; // Para ngModel
+import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
 
 @Component({
@@ -25,29 +25,33 @@ export class LoginComponent {
       .subscribe({
         next: (response: any) => {
           console.log('Login exitoso', response);
-          localStorage.setItem('token', response.token); // Guarda el token
-          this.getUser()
-          console.log(response.token)
-          this.router.navigate(['/chats']);
+          const token = response.access_token;
+          localStorage.setItem('token', token); //Guardar el token en localStorage
+
+          //Solicitud GET para obtener los datos del usuario
+          const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+          this.http.get('http://localhost:8000/api/user/me', { headers })
+            .subscribe({
+              next: (userData: any) => {
+                console.log('Datos del usuario', userData);
+                //Guardar los datos del usuario en localStorage
+                localStorage.setItem('userId', userData.id);
+                localStorage.setItem('userName', userData.name);
+                localStorage.setItem('userEmail', userData.email);
+                //Guardar otros datos si son necesarios
+
+                this.router.navigate(['/chats']);
+              },
+              error: (error) => {
+                console.error('Error al obtener los datos del usuario', error);
+              }
+            });
         },
         error: (error) => {
           console.error('Error al iniciar sesión', error);
+          alert("Email o contraseña incorrectos")
         }
       });
-  }
-  getUser(){
-    let token = localStorage.getItem("token");
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    this.http.get('http://localhost:8000/api/user/me', {headers})
-      .subscribe({
-        next: (response: any) => {
-          console.log('Usuario Obtenido', response);
-          localStorage.setItem('id', response.user.id); // Guarda el ID del usuario
-          localStorage.setItem('Name', response.user.name); // Guarda el nombre del usuario
-          console.log(response.user.id);
-          console.log(response.user.name);
-
-        }
-      })
   }
 }

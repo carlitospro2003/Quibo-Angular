@@ -1,6 +1,6 @@
 <body>
   <header>
-    <button class="logout-button">Cerrar Sesión</button>
+    <button class="logout-button" (click)="logout()">Cerrar Sesión</button>
   </header>
   <section id="chat-container">
     <h2 id="chat-title">
@@ -9,6 +9,9 @@
     </h2>
     <section id="chat">
       <ul id="messages">
+        <li *ngFor="let msg of messages">
+          <strong>{{ msg.userName }}:</strong> {{ msg.message }}
+        </li>
       </ul>
       <form id="form" (ngSubmit)="onSubmit()">
         <input type="text" name="message" id="input" [(ngModel)]="message" placeholder="Type a message" autocomplete="off"/>
