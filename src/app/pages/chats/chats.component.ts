@@ -23,6 +23,7 @@ export class ChatsComponent implements OnInit {
     this.getMessages();
   }
 
+
   onSubmit() {
     const userId = localStorage.getItem('userId');
     const userName = localStorage.getItem('userName');

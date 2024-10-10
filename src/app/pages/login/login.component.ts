@@ -46,6 +46,7 @@ export class LoginComponent {
           localStorage.setItem('Name', response.user.name); // Guarda el nombre del usuario
           console.log(response.user.id);
           console.log(response.user.name);
+
         }
       })
   }
