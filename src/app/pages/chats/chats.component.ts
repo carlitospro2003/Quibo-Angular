@@ -4,6 +4,7 @@ import {HttpClient, HttpClientModule, HttpHeaders} from "@angular/common/http";
 import { Router } from "@angular/router";
 import {NgForOf} from "@angular/common";
 import {AuthService} from "../../service/auth.service";
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-chats',
@@ -17,6 +18,7 @@ import {AuthService} from "../../service/auth.service";
   styleUrls: ['./chats.component.css']
 })
 export class ChatsComponent implements OnInit {
+  private apiUrl = environment.apiUrl;
   message: string = '';
   messages: any[] = [];
 
@@ -53,7 +55,7 @@ export class ChatsComponent implements OnInit {
       message: this.message
     };
 
-    this.http.post('http://localhost:8000/api/message/post-message', messageData, { headers })
+    this.http.post(`${this.apiUrl}/message/post-message`, messageData, { headers })
       .subscribe({
         next: (response: any) => {
           console.log('Mensaje enviado', response);
@@ -71,7 +73,7 @@ export class ChatsComponent implements OnInit {
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    this.http.get('http://localhost:8000/api/message/get-messages', { headers })
+    this.http.get(`${this.apiUrl}/message/get-messages`, { headers })
       .subscribe({
         next: (response: any) => {
           if (response.result) {

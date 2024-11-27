@@ -3,6 +3,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http'; // Para hacer
 import { FormsModule } from '@angular/forms'; // Para usar ngModel
 import { Router, RouterLink } from '@angular/router';
 import {AuthService} from "../../service/auth.service";
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +17,7 @@ import {AuthService} from "../../service/auth.service";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  private apiUrl = environment.apiUrl;
   username: string = '';
   email: string = '';
   password: string = '';
@@ -34,7 +36,7 @@ export class RegisterComponent {
     }
 
     // Hacer la petición POST al servidor para registrar al usuario
-    this.http.post('http://localhost:8000/api/auth/register', {
+    this.http.post(`${this.apiUrl}/auth/register`, {
       name: this.username,
       email: this.email,
       password: this.password,

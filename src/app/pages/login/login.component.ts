@@ -3,6 +3,7 @@ import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
 import {AuthService} from "../../service/auth.service";
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ import {AuthService} from "../../service/auth.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  private apiUrl = environment.apiUrl;
   email: string = '';
   password: string = '';
 
@@ -25,7 +27,7 @@ export class LoginComponent {
     private authService: AuthService) { }
 
   onSubmit() {
-    this.http.post('http://localhost:8000/api/auth/login', { email: this.email, password: this.password })
+    this.http.post(`${this.apiUrl}/auth/login`, { email: this.email, password: this.password })
       .subscribe({
         next: (response: any) => {
           console.log('Login exitoso', response);
