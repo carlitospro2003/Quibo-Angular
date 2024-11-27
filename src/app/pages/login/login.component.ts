@@ -37,7 +37,7 @@ export class LoginComponent {
           //Solicitud GET para obtener los datos del usuario
           const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-          this.http.get('http://localhost:8000/api/user/me', { headers })
+          this.http.get(`${this.apiUrl}/user/me`, { headers })
             .subscribe({
               next: (userData: any) => {
                 console.log('Datos del usuario', userData);
